@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="UTF-8">
+	  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+	  <link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div id="ad">
+			<div class="finalFrame">
+				<p id="finalFrameText"></p>
+				<p id="finalFramePrice"></p>
+				<p id="terms"></p>
+			</div>
+			<div class="imgHolder" id="imgHolder1">
+				<img class="destinationImg" id="destination1">
+				<p class="destinationName" id="destinationName1"></p>
+				<p class="destinationMain" id="destinationMain1"></p>
+				<p class="destinationSecondary" id="destinationSecondary1"></p>
+			</div>
+			<div class="imgHolder" id="imgHolder2">
+				<img class="destinationImg" id="destination2">
+				<p class="destinationName" id="destinationName2"></p>
+				<p class="destinationMain" id="destinationMain2"></p>
+				<p class="destinationSecondary" id="destinationSecondary2"></p>
+			</div>
+			<div class="imgHolder" id="imgHolder3">
+				<img class="destinationImg" id="destination3">
+				<p class="destinationName" id="destinationName3"></p>
+				<p class="destinationMain" id="destinationMain3"></p>
+				<p class="destinationSecondary" id="destinationSecondary3"></p>
+			</div>
+			<div class="footer">
+				<img class="auslogo" src="img/aus_logo_horiz_blue.svg">
+				<img class="fclogo" src="img/fc_logo_red.svg">
+				<div class="button">
+					<p id="buttonText"></p>
+				</div>
+			</div>
+			<div class="keyline"></div>
+		</div>
+		<script src="https://cdn.flashtalking.com/frameworks/js/gsap/latest/plugins/CSSPlugin.min.js"></script>
+		<script src="https://cdn.flashtalking.com/frameworks/js/gsap/latest/easing/EasePack.min.js"></script>
+		<script src="https://cdn.flashtalking.com/frameworks/js/gsap/latest/TweenMax.min.js"></script>
+		<script src="http://cdn.flashtalking.com/frameworks/js/api/2/10/html5API.js"></script>
+		<script type="text/javascript">
+			var destinationMain1 = myFT.$("#destinationMain1")[0],
+			destinationMain2 = myFT.$("#destinationMain2")[0],
+			destinationMain3 = myFT.$("#destinationMain3")[0],
+			destinationSecondary1 = myFT.$("#destinationSecondary1")[0],
+			destinationSecondary2 = myFT.$("#destinationSecondary2")[0],
+			destinationSecondary3 = myFT.$("#destinationSecondary3")[0],
+			finalFrameText = myFT.$("#finalFrameText")[0],
+			finalFramePrice = myFT.$("#finalFramePrice")[0],
+			terms = myFT.$("#terms")[0];
+
+			myFT.on("instantads", function(){
+				document.getElementById("destination1").src = myFT.instantAds.img1;
+				document.getElementById("destination2").src = myFT.instantAds.img2;
+				document.getElementById("destination3").src = myFT.instantAds.img3;
+				document.getElementById("destinationName1").innerHTML = myFT.instantAds.destinationName1;
+				document.getElementById("destinationMain1").innerHTML = myFT.instantAds.destinationMain1;
+				document.getElementById("destinationSecondary1").innerHTML = myFT.instantAds.destinationSecondary2;
+				document.getElementById("destinationName2").innerHTML = myFT.instantAds.destinationName2;
+				document.getElementById("destinationMain2").innerHTML = myFT.instantAds.destinationMain2;
+				document.getElementById("destinationSecondary2").innerHTML = myFT.instantAds.destinationSecondary2;
+				document.getElementById("destinationName3").innerHTML = myFT.instantAds.destinationName3;
+				document.getElementById("destinationMain3").innerHTML = myFT.instantAds.destinationMain3;
+				document.getElementById("destinationSecondary3").innerHTML = myFT.instantAds.destinationSecondary3;
+				document.getElementById("buttonText").innerHTML = myFT.instantAds.cta;
+				document.getElementById("finalFrameText").innerHTML = myFT.instantAds.finalFrameText;
+				document.getElementById("finalFramePrice").innerHTML = myFT.instantAds.finalFramePrice;
+				document.getElementById("terms").innerHTML = myFT.instantAds.terms;
+				shrinkr(destinationMain1);
+				shrinkr(destinationMain2);
+				shrinkr(destinationMain3);
+				shrinkr(destinationSecondary1);
+				shrinkr(destinationSecondary2);
+				shrinkr(destinationSecondary3);
+				shrinkr(finalFrameText);
+				shrinkr(finalFramePrice);
+				shrinkr(terms);
+				start();
+				// anim1();
+			});
+
+			myFT.applyButton("#ad", click);
+
+			function click() {
+				myFT.clickTag(0, myFT.instantAds.clickThrough);
+			}
+
+			function start() {
+				TweenLite.to([".imgHolder", ".footer"], 0.75, {opacity:1, onComplete:anim1});
+			}
+
+			function anim1() {
+				TweenLite.to("#destination1", 0.5, {top:0, delay:1});
+				TweenLite.to("#imgHolder1", 0.5, {height:600, zIndex:2, delay:1});
+				TweenLite.to("#destinationName1", 0.5, {opacity:1, delay:1.5});
+				TweenLite.fromTo("#destinationMain1", 0.9, {x:-30, opacity:0}, {x:0, opacity:1, ease:Back.easeOut, delay:1.6});
+				TweenLite.fromTo("#destinationSecondary1", 0.9, {x:+30, opacity:0}, {x:0, opacity:1, ease:Back.easeOut, delay:2});
+				TweenLite.to(["#destinationName1", "#destinationMain1", "#destinationSecondary1"], 0.5, {opacity:0, delay:5.7})
+				TweenLite.to("#imgHolder1", 0.5, {height:185, zIndex:1, delay:6});
+				TweenLite.to("#destination1", 0.5, {top:-80, zIndex:1, delay:6, onComplete:anim2});
+			}
+
+			function anim2() {
+				TweenLite.to(["#imgHolder2","#destination2"], 0.5, {zIndex:2});
+				TweenLite.to(["#imgHolder2","#destination2"], 0.5, {top:0, zIndex:2, delay:0.1});
+				TweenLite.to("#imgHolder2", 0.5, {height:600, delay:0.2});
+				TweenLite.to("#destinationName2", 0.5, {opacity:1, delay:0.5});
+				TweenLite.fromTo("#destinationMain2", 0.9, {x:-30, opacity:0}, {x:0, opacity:1, ease:Back.easeOut, delay:0.6});
+				TweenLite.fromTo("#destinationSecondary2", 0.9, {x:+30, opacity:0}, {x:0, opacity:1, ease:Back.easeOut, delay:1});
+				TweenLite.to(["#destinationName2", "#destinationMain2", "#destinationSecondary2"], 0.5, {opacity:0, delay:4.7})
+				TweenLite.to("#imgHolder2", 0.5, {height:185, top:185, zIndex:1, delay:5});
+				TweenLite.to("#destination2", 0.5, {top:-80, zIndex:1, delay:5, onComplete:anim3});
+			}
+
+			function anim3() {
+				TweenLite.to(["#imgHolder3","#destination3"], 0.5, {zIndex:2});
+				TweenLite.to(["#imgHolder3","#destination3"], 0.5, {top:0, zIndex:2, delay:0.1});
+				TweenLite.to("#imgHolder3", 0.5, {height:600, delay:0.2});
+				TweenLite.to("#destinationName3", 0.5, {opacity:1, delay:0.5});
+				TweenLite.fromTo("#destinationMain3", 0.9, {x:-30, opacity:0}, {x:0, opacity:1, ease:Back.easeOut, delay:0.6});
+				TweenLite.fromTo("#destinationSecondary3", 0.9, {x:+30, opacity:0}, {x:0, opacity:1, ease:Back.easeOut, delay:1});
+				TweenLite.to(["#destinationName3", "#destinationMain3", "#destinationSecondary3"], 0.5, {opacity:0, delay:4.7})
+				TweenLite.to("#imgHolder3", 0.5, {height:185, top:370, zIndex:1, delay:5});
+				TweenLite.to("#destination3", 0.5, {top:-80, zIndex:1, delay:5, onComplete:finalFrame});
+			}
+
+			function finalFrame() {
+				TweenLite.to(".finalFrame", 0.5, {autoAlpha:1,delay:1});
+				TweenLite.fromTo("#finalFrameText", 0.9, {x:-30, opacity:0}, {x:0, opacity:1, ease:Back.easeOut, delay:1.5});
+                TweenLite.fromTo("#finalFramePrice", 0.9, {x:+30, opacity:0}, {x:0, opacity:1, ease:Back.easeOut, delay:2.2});
+                TweenLite.to("#terms", 0.5, {autoAlpha:1, delay:2.9});
+			}
+
+			function shrinkr(e){	
+
+			    var ofs = parseInt(window.getComputedStyle(e, null).getPropertyValue('font-size'));
+			    var efs = ofs;
+			    var lh = window.getComputedStyle(e, null).getPropertyValue('line-height');
+			    var ls = window.getComputedStyle(e, null).getPropertyValue('letter-spacing');
+
+		    
+			    var vPad=0;
+			    var hPad=0;
+
+			    if((window.getComputedStyle(e, null).getPropertyValue('box-sizing')) == "content-box"){
+			    	vPad = parseInt(window.getComputedStyle(e, null).getPropertyValue('padding-top')) + parseInt(window.getComputedStyle(e, null).getPropertyValue('padding-bottom'));
+			    	hPad = parseInt(window.getComputedStyle(e, null).getPropertyValue('padding-left')) + parseInt(window.getComputedStyle(e, null).getPropertyValue('padding-right'));
+			    }
+
+			    var maxWidth = e.clientWidth - hPad;
+			    var maxHeight = parseInt(window.getComputedStyle(e, null).getPropertyValue('max-height'));
+
+			    if(isNaN(maxHeight)){
+			        maxHeight = e.clientHeight;
+			    }
+
+			    maxHeight -= vPad;
+
+			    //Sets minimum font size
+			    var minfs = 4;
+
+			    /////////////////////////////////////
+			    //LONGEST WORD CHECK
+			    /////////////////////////////////////
+
+			    //Create a new div and append it to the element
+			    var longestWord = document.createElement('div');
+
+			    longestWord.style.position="absolute";
+			    longestWord.style.whiteSpace="no-wrap";
+			    longestWord.style.fontFamily = "inherit";
+			    
+			    e.appendChild(longestWord);   
+
+			    //Get font size for main element and our newly created child element (IE9+)
+			    
+			    var lfs = parseInt(window.getComputedStyle(longestWord, null).getPropertyValue('font-size'));
+
+			    //Split text content from main element into array (IE9+)
+			    var p = e.textContent.split(" ");
+
+			    //find widest word by pixel width
+			    var lw = 0,
+			        lwp = "";
+
+			    for (var i = 0; i < p.length; i++){
+			      longestWord.innerHTML = p[i];
+			      var nw = longestWord.clientWidth;
+
+			      if(nw > lw){
+			        lw = nw;
+			        lwp = p[i];
+			      }
+			    }
+
+			    //Assigns only the longest word to child element
+			    longestWord.innerHTML = lwp;
+
+			    //While the longest word is wider than the parent div make the font smaller
+			    while (longestWord.clientWidth > maxWidth && efs > minfs){
+			      if (efs === 0) {break;}
+			      efs--;
+			      longestWord.style.fontSize = efs +"px";
+			    }
+
+			    //Clean up resizing div
+			    e.removeChild(longestWord);
+			    //Set parent font size to fit longest word
+			    e.style.fontSize = efs+"px";
+			    
+
+			    /////////////////////////////////////
+			    //RESIZE CHECK
+			    /////////////////////////////////////
+
+			    //--- Now regular resize function
+			    var b = document.createElement("div");
+			    b.innerHTML = e.innerHTML;
+			    e.appendChild(b);   
+
+			    b.style.position="absolute";
+			    b.style.margin="0px";
+			    b.style.padding="0px";
+			    b.style.visibility="hidden";
+			    b.style.fontFamily = "inherit";
+			    b.style.fontSize = efs +"px";
+
+			    b.style.width = maxWidth+"px"; 
+
+			    //If text element is using custom line-height, this will preserve it as a ratio. 
+
+			    if (!isNaN(parseInt(lh))){b.style.lineHeight = (parseInt(lh) / ofs)+"em";}       
+			       b.style.letterSpacing = "inherit";
+
+			    while(b.clientHeight > maxHeight){
+			    if (efs === 0) {break;}
+			      efs--;
+			      b.style.fontSize = efs +"px";
+			    }
+
+			    e.removeChild(b);
+			    e.style.fontSize = efs +"px";
+			}
+		</script>
+	</body>
+</html>

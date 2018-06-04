@@ -1,0 +1,182 @@
+@font-face {
+	font-family: 'TAHANDBold';
+	src: url('TAHANDBold.woff');
+}
+
+body {
+	font-family: 'TAHANDBold';
+	background-color: #333;
+}
+
+p {
+	font-family: 'TAHANDBold';
+	color: white;
+}
+
+#ad {
+	position: relative;
+	width: 300px;
+	height: 600px;
+	background-color: white;
+}
+
+.keyline {
+	position: absolute;
+	width: 298px;
+	height: 598px;
+	border: 1px solid #ccc;
+	top: 0;
+	z-index: 1000;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0px;
+	height: 45px;
+	background-color: white;
+	width: 100%;
+	z-index: 99;
+	opacity: 0;
+}
+
+.imgHolder {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 185px;
+	overflow: hidden;
+	background-color: #cc0000;
+	opacity: 0;
+}
+
+#imgHolder1{
+	top: 0;
+}
+
+#imgHolder2{
+	top: 185px;
+}
+
+#imgHolder3{
+	top: 370px;
+}
+
+.button {
+	position: absolute;
+	width: 120px;
+	height: 30px;
+	background-color: #cc0000;
+	color: white;
+	border-radius: 5px;
+	right: 14px;
+	bottom: 8px;
+}
+
+.destinationImg{
+	position: relative;
+	top: -80px;
+}
+
+.destinationName {
+	position: absolute;
+	font-size: 16px;
+	top: 280px;
+	left: 11px;
+	opacity: 0;
+	z-index: 99;
+}
+
+.destinationMain {
+	position: absolute;
+	font-size: 36px;
+	width: 250px;
+	height: 107px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 325px;
+	opacity: 0;
+}
+
+.destinationSecondary {
+	position: absolute;
+	font-size: 26px;
+	width: 250px;
+	height: 51px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 453px;
+	opacity: 0;
+}
+
+.auslogo {
+	position: absolute;
+	bottom: 7px;
+	left: 14px;
+	width: 86px;
+	height: 32px;
+}
+
+.fclogo {
+	position: absolute;
+	bottom: 8px;
+	left: 111px;
+	height: 30px;
+	width: 43px;
+}
+
+p#buttonText {
+    position: relative;
+    font-size: 21px;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.finalFrame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.87);
+    z-index: 2;
+    opacity: 0;
+}
+
+p#finalFrameText {
+    position: absolute;
+    top: 139px;
+    width: 250px;
+    font-size: 52px;
+    left: 25px;
+    text-align: center;
+    color: #cc0000;
+    height: 140px;
+    opacity: 0;
+}
+
+p#finalFramePrice {
+    position: absolute;
+    top: 318px;
+    width: 250px;
+    font-size: 51px;
+    left: 25px;
+    text-align: center;
+    color: #cc0000;
+    height: 100px;
+    opacity: 0;
+}
+
+p#terms {
+    position: absolute;
+    width: 250px;
+    left: 25px;
+    text-align: center;
+    top: 423px;
+    font-size: 22px;
+    color: #cc0000;
+    height: 25px;
+    opacity: 0;
+}
